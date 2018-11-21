@@ -75,7 +75,8 @@ public class SampleDiscounts extends PricingRules {
 			return product.price * count;
 
 		}
-		return 0;
+		//in case product was defined with invalid discount id
+		throw new java.lang.Error("Error processing discount: bad discount type at product " + product.name);
 	}
 
 }
