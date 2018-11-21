@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 //Sample implementation of PricingRules template. Processes discounts as specified within challenge excercise.
-//This class cant be further extended and still used as argument for main class, in case new discount types were implemented.
+//This class can be further extended and still used as argument for main class, in case new discount types were implemented.
 //Use "super" to call existing price calculator in the overload to handle existing discounts.
 public class SampleDiscounts extends PricingRules {
 
