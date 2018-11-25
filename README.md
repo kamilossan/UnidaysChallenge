@@ -16,4 +16,6 @@ Actual discount processing class. Extends PricingRules so it can be passed as ar
 
 I used Java due to it's relative simplicity in implementing class templates(abstract classes/interfaces) that proved useful in this scenario and due to possibility of utilizing this solution on an actual web server (eg. Apache+JSP).
 
+More detailed description of separate functions are within the comments inside classes.
+
 ~Kamil Spirydowicz
