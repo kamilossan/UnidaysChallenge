@@ -7,31 +7,44 @@ public class Product {
 	protected double price;
 	protected int discount_type;
 	protected double discount_arg;
-	public String get_name(){
+	
+	public String get_name() {
 		return name;
 	}
-	public double get_price(){
+
+	public void set_name(String name) {
+		this.name = name;
+	}
+
+	public double get_price() {
 		return price;
 	}
-	public int get_discount_type(){
-		return discount_type;
-	}
-	protected void set_name(String name){
-		this.name =name;
-	}
-	protected void set_price(double price){
+
+	public void set_price(double price) {
 		this.price = price;
 	}
-	protected void set_discount(int id, double arg){
-	//typically 0 = no discount	
-		this.discount_type = id;
-		this.discount_arg = arg;
-		
+
+	public int get_discount_type() {
+		return discount_type;
 	}
+
+	public void set_discount_type(int discount_type) {
+		this.discount_type = discount_type;
+	}
+
+	public double get_discount_arg() {
+		return discount_arg;
+	}
+
+	public void set_discount_arg(double discount_arg) {
+		this.discount_arg = discount_arg;
+	}
+	
 	public Product(String name, double price, int discount_id, double arg){
 		set_name(name);
 		set_price(price);
-		set_discount(discount_id, arg);
+		set_discount_type(discount_id);
+		set_discount_arg(arg);
 		
 	}
 }

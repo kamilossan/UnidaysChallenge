@@ -20,7 +20,7 @@ public class SampleDiscounts extends PricingRules {
 	// to be free, where x is interval.
 	public double free_add(int interval, int in_basket, double price) {
 		
-		double result = (in_basket-(int)(in_basket/interval))*price;
+		double result = (in_basket-(in_basket/interval))*price;
 		return result;
 	};
 
@@ -42,22 +42,32 @@ public class SampleDiscounts extends PricingRules {
 			if (counted.contains(x.name)) {
 				continue;
 			} else {
-				super.product_cost += get_discounted_price(x, count_product(products, x.name));
-				counted.add(x.name);
+				double price = get_discounted_price(x, count_product(products, x.name));
+				//handle bad discount id
+				if(price==-1){
+					throw new java.lang.Error("Wrong discount ID at "+ x.name);
+				}
+				else{
+				super.product_cost += price;
+				counted.add(x.name);}
 			}
 		}
 	};
 
 	void calculate_total(List<Product> products){
 		calculate_products(products);
-		super.set_delivery_price(7, 50);
-		super.total = super.product_cost+super.delivery_price;
+		set_delivery_price(7, 50);
+		total = product_cost+delivery_price;
 	};
 
 	public SampleDiscounts() {
 		// TODO Auto-generated constructor stub
 	}
-
+	//will normally throw error in this scope, overload this function in further child classes to process other discount ID's.
+	//this way child get_discounted_price() can call its super function without error
+	protected void handle_scope_out(Product product){
+		throw new java.lang.Error("Error processing discount: bad discount type at product " + product.name);
+	}
 	@Override
 	double get_discounted_price(Product product, int count) {
 		switch (product.discount_type) {
@@ -76,7 +86,8 @@ public class SampleDiscounts extends PricingRules {
 
 		}
 		//in case product was defined with invalid discount id
-		throw new java.lang.Error("Error processing discount: bad discount type at product " + product.name);
+		//doesnt throw error here so it can be called by child function without breaking
+		return -1;
 	}
 
 }
