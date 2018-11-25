@@ -3,7 +3,7 @@ Discount processing system
 
 Rather simple discount processing framework to calculate total price of product in basket including delivery, with the option of expanding the program to customize discounts, delivery price change conditions or product pricings. 
 General usage description:
-Exec.jar file launches Exec.java, which is just a sample implementation of the interface. It instantiates the framework to calculate the basket equal to the last test case given in challenge specification. 
+Exec.jar file launches Exec.java, which is just a sample implementation of the interface. It instantiates the framework to calculate the basket equal to the last test case given in challenge specification. Just manage the array within that class to manage the contents of the basket.
 General syntax is as follows:
 ## UnidaysDiscountChallenge.java: 
 The main framework. Instantiate it with class of type PricingRules. As per specification, contains methods addToBasket() and calculate_total(), that behave exactly as specified. 
